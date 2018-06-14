@@ -31,14 +31,43 @@ else {
 }
 
 //4)
-var a=12;
+var a=parseFloat(prompt("Введите число от 0 до 15"));
 switch(a) {
+	case 0:
+		document.write("0");
+	case 1:
+		document.write("1");
+	case 2:
+		document.write("2");
+	case 3:
+		document.write("3");
+	case 4:
+		document.write("4");
+	case 5:
+		document.write("5");
+	case 6:
+		document.write("6");
+	case 7:
+		document.write("7");
+	case 8:
+		document.write("8");
+	case 9:
+		document.write("9");
+	case 10:
+		document.write("10");
+	case 11:
+		document.write("11");
 	case 12:
-		alert(a);
-		alert(a+1);
-		alert(a+2);
-		alert(a+3);
+		document.write("12");
+	case 13:
+		document.write("13");
+	case 14:
+		document.write("14");
+	case 15:
+		document.write("15");
 		break;
+	default:
+		document.write("Неверно выполнен ввод");
 }
 
 //5)
@@ -55,29 +84,28 @@ function mult(a,b) {
 }
 
 function div(a,b) {
-	return(a/b);
+	if(b!=0){
+		return(a/b);
+	}
+	else {
+		alert("на ноль делить нельзя");
+	}
 }
 
 //6)
 function mathOperation(arg1, arg2, operation) {
-	if (arg1>=0 && arg2>=0) {
-		operation='minus';	
-	}
-	else if (arg1<0 && arg2<0) {
-		operation='mult';
-	}
-	else {
-		operation='sum';	
-	}
 	switch(operation) {
 		case 'minus':
-			return(arg1-arg2);
+			return minus(arg1,arg2);
 			break;
 		case 'mult':
-			return(arg1*arg2);
+			return mult(arg1,arg2);
 			break;
 		case 'sum':
-			return(arg1+arg2);
+			return sum(arg1,arg2);
+			break;
+		default:
+			return NaN;
 			break;
 	}
 }
@@ -91,6 +119,15 @@ function power(val, pow) {
 	if(pow==1) {
 		return val;
 	}
-	return val*power(val, pow-1);
+	if(pow>0) {
+		var temp=val*power(val, pow-1);
+		console.log(temp);
+		return temp;
+	} else if (pow<0) {
+		return (1/val) * (power(val, pow+1));
+	} else {
+		return 1;
+	}
+	
 }
 
