@@ -16,10 +16,9 @@ for(i=0; i<10; console.log(i++)) {
 }
 
 //4)
-var j; //счетчик решеток в ряду
-for (i=1; i<=20; i++) {
-	for (j=1; j<=i; j++) {
-		console.log("x");
-	}
-	console.log("\n");
+var x="#";
+var num;
+for(num=1; num<=20; num++) {
+	console.log(x);
+	x += "#";
 }
